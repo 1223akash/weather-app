@@ -13,7 +13,7 @@ git add .
 git commit -m "Add API Key missing alert"
 
 echo 3. Pushing to master...
-git push -u origin master
+git push --force origin master
 
 echo.
 echo [SUCCESS] Changes pushed!
