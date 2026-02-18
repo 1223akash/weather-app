@@ -85,7 +85,8 @@ async function fetchWeather(city) {
 function updateCurrentWeather(name, countryCode, current, daily) {
     // Basic Info
     document.getElementById("city-name").textContent = name;
-    document.getElementById("country-code").textContent = countryCode || "GLb";
+    // Use country code if available, else blank. Don't fallback to "GLb" or "US" blindly.
+    document.getElementById("country-code").textContent = countryCode ? countryCode.toUpperCase() : "";
 
     // Date Time
     const now = new Date();
