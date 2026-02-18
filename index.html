@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atmosphere | Premium Weather</title>
+    <title>Atmosphere | Pro Weather Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -20,48 +20,112 @@
         <div class="globe globe-3"></div>
     </div>
 
-    <main class="glass-card">
-        <header>
-            <h1>Atmosphere</h1>
+    <main class="dashboard-container">
+
+        <!-- Search & Header -->
+        <header class="glass-panel">
+            <div class="logo">
+                <i class="fa-solid fa-earth-americas"></i> Atmosphere Pro
+            </div>
             <div class="search-box">
                 <i class="fa-solid fa-location-dot"></i>
-                <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                <input type="text" id="city-input" placeholder="Search city (e.g., Tokyo, Paris)..." autocomplete="off">
                 <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </header>
 
-        <section id="weather-display" class="weather-content hidden">
-            <div class="current-weather">
-                <div class="weather-icon">
-                    <i id="w-icon" class="fa-solid fa-cloud"></i>
-                </div>
-                <div class="weather-info">
+        <!-- Main Display -->
+        <section id="weather-display" class="content-grid hidden">
+
+            <!-- Current Weather Card -->
+            <div class="glass-panel main-card">
+                <div class="location-badge">
                     <h2 id="city-name">New York</h2>
-                    <p id="weather-desc">Cloudy</p>
-                    <div class="temp-box">
+                    <span id="country-code" class="flag">US</span>
+                    <p id="date-time">Today, 10:00 AM</p>
+                </div>
+
+                <div class="temp-container">
+                    <i id="w-icon" class="fa-solid fa-cloud"></i>
+                    <div>
                         <span id="temperature">24</span><span class="unit">°C</span>
+                        <p id="weather-desc">Cloudy</p>
                     </div>
+                </div>
+
+                <div class="high-low">
+                    <span>H: <span id="temp-max">--</span>°</span>
+                    <span>L: <span id="temp-min">--</span>°</span>
                 </div>
             </div>
 
-            <div class="details-grid">
-                <div class="detail-item">
-                    <i class="fa-solid fa-wind"></i>
-                    <div>
-                        <span id="wind-speed">12 km/h</span>
-                        <p>Wind</p>
-                    </div>
-                </div>
-                <div class="detail-item">
+            <!-- Detailed Metrics Grid -->
+            <div class="metrics-grid">
+                <div class="glass-panel metric-card">
                     <i class="fa-solid fa-droplet"></i>
                     <div>
-                        <span id="humidity">45%</span>
                         <p>Humidity</p>
+                        <h4 id="humidity">--%</h4>
+                    </div>
+                </div>
+                <div class="glass-panel metric-card">
+                    <i class="fa-solid fa-wind"></i>
+                    <div>
+                        <p>Wind Speed</p>
+                        <h4 id="wind-speed">-- km/h</h4>
+                    </div>
+                </div>
+                <div class="glass-panel metric-card">
+                    <i class="fa-regular fa-eye"></i>
+                    <div>
+                        <p>Visibility</p>
+                        <h4 id="visibility">-- km</h4>
+                    </div>
+                </div>
+                <div class="glass-panel metric-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <div>
+                        <p>Pressure</p>
+                        <h4 id="pressure">-- hPa</h4>
+                    </div>
+                </div>
+                <div class="glass-panel metric-card">
+                    <i class="fa-solid fa-sun"></i>
+                    <div>
+                        <p>UV Index</p>
+                        <h4 id="uv-index">--</h4>
+                    </div>
+                </div>
+                <div class="glass-panel metric-card">
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <div>
+                        <p>Feels Like</p>
+                        <h4 id="feels-like">--°</h4>
                     </div>
                 </div>
             </div>
+
+            <!-- 5-Day Forecast -->
+            <div class="glass-panel forecast-section">
+                <h3><i class="fa-regular fa-calendar-days"></i> 5-Day Forecast</h3>
+                <div id="forecast-container" class="forecast-row">
+                    <!-- JS Injected Items -->
+                </div>
+            </div>
+
+            <!-- City Details -->
+            <div class="glass-panel city-info">
+                <h3><i class="fa-solid fa-city"></i> City Insights</h3>
+                <div class="info-list">
+                    <p>Timezone: <span id="timezone">--</span></p>
+                    <p>Population: <span id="population">--</span></p>
+                    <p>Elevation: <span id="elevation">--</span> m</p>
+                </div>
+            </div>
+
         </section>
 
+        <!-- Loading & Error -->
         <div id="loader" class="loader hidden"></div>
         <div id="error-msg" class="error-msg hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
