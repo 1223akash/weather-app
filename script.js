@@ -1,5 +1,5 @@
-// Weather App V3.2 - Cache Busting & Polish
-console.log("Atmosphere Pro V3.2 Loaded");
+// Weather App V3.3 - Added State Name
+console.log("Atmosphere Pro V3.3 Loaded");
 
 // DOM Elements
 const cityInput = document.getElementById("city-input");
@@ -60,7 +60,7 @@ async function fetchWeather(city) {
             throw new Error(`City "${city}" not found.`);
         }
 
-        const { latitude, longitude, name, country_code, country, timezone, population, elevation } = geoData.results[0];
+        const { latitude, longitude, name, admin1, country_code, country, timezone, population, elevation } = geoData.results[0];
 
         // 2. Weather API (Current + Daily Forecast)
         // requesting: temperature, windspeed, weathercode, relativehumidity_2m, surface_pressure, visibility, apparent_temperature, uv_index
@@ -70,7 +70,7 @@ async function fetchWeather(city) {
         const weatherData = await weatherRes.json();
 
         // Update UI
-        updateCurrentWeather(name, country_code, weatherData.current, weatherData.daily);
+        updateCurrentWeather(name, admin1, country_code, weatherData.current, weatherData.daily);
         updateCityInfo(timezone, population, elevation);
         updateForecast(weatherData.daily);
 
@@ -85,9 +85,10 @@ async function fetchWeather(city) {
     }
 }
 
-function updateCurrentWeather(name, countryCode, current, daily) {
+function updateCurrentWeather(name, admin1, countryCode, current, daily) {
     // Basic Info
-    document.getElementById("city-name").textContent = name;
+    const stateStr = admin1 ? `, ${admin1}` : "";
+    document.getElementById("city-name").textContent = `${name}${stateStr}`;
     // Use country code if available, else blank. Don't fallback to "GLb" or "US" blindly.
     document.getElementById("country-code").textContent = countryCode ? countryCode.toUpperCase() : "";
 
