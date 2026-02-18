@@ -71,7 +71,6 @@ async function fetchWeather(city) {
 
         // Update UI
         updateCurrentWeather(name, admin1, country_code, weatherData.current, weatherData.daily);
-        updateCityInfo(timezone, population, elevation);
         updateForecast(weatherData.daily);
 
         weatherDisplay.classList.remove("hidden");
@@ -147,12 +146,6 @@ function updateForecast(daily) {
         `;
         container.innerHTML += item;
     }
-}
-
-function updateCityInfo(timezone, population, elevation) {
-    document.getElementById("timezone").textContent = timezone || "UTC";
-    document.getElementById("population").textContent = population ? population.toLocaleString() : "N/A";
-    document.getElementById("elevation").textContent = elevation || "0";
 }
 
 // Listeners
