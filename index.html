@@ -1,23 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Atmosphere | Premium Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main>
-        <section id="weather-wrapper">
-            <h1>Weather App</h1>
-            <div id="weather-search">
-                <input id="search" type="text" placeholder="Search by city">
-                <input id="submit" type="submit" onclick="fetchWeather()" value="Search">
+
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <main class="glass-card">
+        <header>
+            <h1>Atmosphere</h1>
+            <div class="search-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-            <div id="weather-data" style="display: none;"></div>
+        </header>
+
+        <section id="weather-display" class="weather-content hidden">
+            <div class="current-weather">
+                <div class="weather-icon">
+                    <i id="w-icon" class="fa-solid fa-cloud"></i>
+                </div>
+                <div class="weather-info">
+                    <h2 id="city-name">New York</h2>
+                    <p id="weather-desc">Cloudy</p>
+                    <div class="temp-box">
+                        <span id="temperature">24</span><span class="unit">°C</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <i class="fa-solid fa-wind"></i>
+                    <div>
+                        <span id="wind-speed">12 km/h</span>
+                        <p>Wind</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div>
+                        <span id="humidity">45%</span>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <div id="loader" class="loader hidden"></div>
+        <div id="error-msg" class="error-msg hidden">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p id="error-text">City not found</p>
+        </div>
+
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
