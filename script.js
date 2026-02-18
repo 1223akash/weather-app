@@ -65,5 +65,9 @@ async function fetchWeather() {
 
     document.getElementById("search").value = "";
     const geocodeData = await getLonAndLat();
+    if (!geocodeData) {
+        console.log("No geocode data found or error occurred.");
+        return;
+    }
     getWeatherData(geocodeData.lon, geocodeData.lat);
 }
