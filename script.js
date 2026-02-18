@@ -1,3 +1,6 @@
+// Weather App V3.2 - Cache Busting & Polish
+console.log("Atmosphere Pro V3.2 Loaded");
+
 // DOM Elements
 const cityInput = document.getElementById("city-input");
 const searchBtn = document.getElementById("search-btn");

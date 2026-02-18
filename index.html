@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3.2">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
             </div>
             <div class="search-box">
                 <i class="fa-solid fa-location-dot"></i>
-                <input type="text" id="city-input" placeholder="Search city (e.g., Tokyo, Paris)..." autocomplete="off">
+                <input type="text" id="city-input" placeholder="Search city..." autocomplete="off">
                 <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </header>
@@ -40,16 +40,16 @@
             <!-- Current Weather Card -->
             <div class="glass-panel main-card">
                 <div class="location-badge">
-                    <h2 id="city-name">New York</h2>
-                    <span id="country-code" class="flag">US</span>
-                    <p id="date-time">Today, 10:00 AM</p>
+                    <h2 id="city-name">--</h2>
+                    <span id="country-code" class="flag"></span>
+                    <p id="date-time">--</p>
                 </div>
 
                 <div class="temp-container">
                     <i id="w-icon" class="fa-solid fa-cloud"></i>
                     <div>
-                        <span id="temperature">24</span><span class="unit">°C</span>
-                        <p id="weather-desc">Cloudy</p>
+                        <span id="temperature">--</span><span class="unit">°C</span>
+                        <p id="weather-desc">--</p>
                     </div>
                 </div>
 
@@ -134,7 +134,7 @@
 
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3.2"></script>
 </body>
 
 </html>
