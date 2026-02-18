@@ -3,12 +3,7 @@ async function fetchWeather() {
     const weatherDataDiv = document.getElementById("weather-data");
     weatherDataDiv.style.display = "block";
 
-    const apiKey = ""; // PASTE YOUR API KEY HERE
-    if (apiKey === "") {
-        console.error("API Key is missing!");
-        alert("Error: API Key is missing. Please add your OpenWeatherMap API key to line 6 of script.js");
-        return;
-    }
+    const apiKey = "859b9b436ed139dad293871183590d86";
 
     if (searchInput === "") {
         weatherDataDiv.innerHTML = `
